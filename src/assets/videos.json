@@ -13,7 +13,7 @@
   },
   {
     "title": "Video 4",
-    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/sample+(4).mp4"
+    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/sample+(7).mp4"
   },
   {
     "title": "Video 5",
@@ -22,9 +22,5 @@
   {
     "title": "Video 6",
     "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/sample+(6).mp4"
-  },
-  {
-    "title": "Video 7",
-    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/sample+(7).mp4"
   }
 ]
