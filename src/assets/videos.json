@@ -1,26 +1,26 @@
 [
   {
     "title": "Video 1",
-    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/sample+(1).mp4"
+    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/videos/sample+(1).mp4"
   },
   {
     "title": "Video 2",
-    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/sample+(2).mp4"
+    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/videos/sample+(2).mp4"
   },
   {
     "title": "Video 3",
-    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/sample+(3).mp4"
+    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/videos/sample+(3).mp4"
   },
   {
     "title": "Video 4",
-    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/sample+(7).mp4"
+    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/videos/sample+(7).mp4"
   },
   {
     "title": "Video 5",
-    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/sample+(5).mp4"
+    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/videos/sample+(5).mp4"
   },
   {
     "title": "Video 6",
-    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/sample+(6).mp4"
+    "file": "https://edutok.s3-ap-southeast-1.amazonaws.com/videos/sample+(6).mp4"
   }
 ]
