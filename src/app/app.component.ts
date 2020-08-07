@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { VideosService } from './videos.service';
 import { IVideo } from './models';
+import { REPORT_TYPE } from './models/report.interface';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -37,6 +38,7 @@ export class AppComponent implements AfterViewInit {
     if (!isLast) {
       this.pause(this.playingVideoIndex);
     }
+    this.report(REPORT_TYPE.next, this.playingVideoIndex);
     this.play(this.playingVideoIndex + 1);
   }
   prev() {
@@ -44,6 +46,7 @@ export class AppComponent implements AfterViewInit {
     if (!isFirst) {
       this.pause(this.playingVideoIndex);
     }
+    this.report(REPORT_TYPE.prev, this.playingVideoIndex);
     this.play(this.playingVideoIndex - 1);
   }
 
@@ -53,6 +56,7 @@ export class AppComponent implements AfterViewInit {
       console.log('end of videos');
       return;
     }
+
     this.playingVideoIndex = index;
     if (!this.bufferedVideos.includes(index)) {
       this.bufferedVideos.push(index);
@@ -60,15 +64,11 @@ export class AppComponent implements AfterViewInit {
     }
 
     this.show(index);
-    (this.videosContainer.nativeElement.children.item(
-      index
-    ) as HTMLVideoElement).play();
+    this.getVideoElementByIndex(index).play();
   }
 
   pause(index) {
-    (this.videosContainer.nativeElement.children.item(
-      index
-    ) as HTMLVideoElement).pause();
+    this.getVideoElementByIndex(index).pause();
   }
 
   show(index) {
@@ -78,10 +78,20 @@ export class AppComponent implements AfterViewInit {
   private createVideoElement(video: IVideo) {
     const videoEL = document.createElement('video');
     videoEL.src = video.file;
-    videoEL.loop = true;
     videoEL.muted = true;
-    // videoEL.width = this.videoWidth;
     videoEL.height = this.videoHeight;
+    videoEL.onended = this.next.bind(this);
     this.videosContainer.nativeElement.append(videoEL);
+  }
+
+  private report(type: REPORT_TYPE, index) {
+    const videoEL = this.getVideoElementByIndex(index);
+    this.videosService.sendReport({type, video: this.videos[index], playedTime: videoEL.currentTime }).toPromise();
+  }
+
+  private getVideoElementByIndex(index) {
+    return this.videosContainer.nativeElement.children.item(
+      index
+    ) as HTMLVideoElement;
   }
 }
